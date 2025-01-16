@@ -101,6 +101,7 @@ export class ApisController {
       const response = await axios.get(apiUrl, {
         params: { q: query, key: GOOGLE_BOOKS_API_KEY },
       });
+
       res.json(response.data);
     } catch (error) {
       res.status(500).json({ error: "Failed to fetch data" });
