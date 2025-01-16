@@ -110,7 +110,13 @@ export class UserController {
 
   // log out
   deleteSigned = async (req, res) => {
-    res.clearCookie("access_token").json({ message: "logout succesful" });
+    res
+      .clearCookie("access_token", {
+        httpOnly: true,
+        sameSite: "None",
+        secure: true,
+      })
+      .json({ message: "logout succesful" });
   };
 
   // Verify user followers
