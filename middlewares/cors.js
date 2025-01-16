@@ -12,12 +12,6 @@ const ACCEPTED_ORIGINS = [
 export const corsMiddleware = ({ acceptedOrigins = ACCEPTED_ORIGINS } = {}) =>
   cors({
     origin: (origin, callback) => {
-      if (!origin) {
-        if (process.env.NODE_ENV === "development") {
-          return callback(null, true);
-        }
-        return callback(new Error("Requests without origin are not allowed"));
-      }
       if (acceptedOrigins.includes(origin)) {
         return callback(null, true);
       }
