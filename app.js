@@ -23,21 +23,31 @@ export const createApp = ({
   app.disable("x-powered-by");
   app.use(cookieParser());
 
+  app.use(express.urlencoded({ extended: true, limit: "100mb" }));
+
+  const allowedOrigins = [
+    "https://yapflix.vercel.app",
+    "http://localhost:3000",
+    "http://localhost:4200",
+    "https://yapflix-yapus-projects.vercel.app",
+  ];
+
   app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "https://yapflix.vercel.app");
-    res.header(
-      "Access-Control-Allow-Methods",
-      "GET, POST, PUT, DELETE, OPTIONS"
-    );
-    res.header(
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-    );
-    res.header("Access-Control-Allow-Credentials", "true");
+    const origin = req.get("Origin");
+    if (allowedOrigins.includes(origin)) {
+      res.header("Access-Control-Allow-Origin", origin); // Permitir origen dinámico
+      res.header(
+        "Access-Control-Allow-Methods",
+        "GET, POST, PUT, DELETE, OPTIONS"
+      );
+      res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+      );
+      res.header("Access-Control-Allow-Credentials", "true");
+    }
     next();
   });
-
-  app.use(express.urlencoded({ extended: true, limit: "100mb" }));
 
   // routes
   app.use("/users", createUserRouter({ userModel }));
