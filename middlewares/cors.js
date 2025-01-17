@@ -7,8 +7,8 @@ const ACCEPTED_ORIGINS = [
   "http://localhost:1234",
   "https://midu.dev",
   "https://yapflix-server.onrender.com",
-  "https://yapflix.vercel.app/",
-  "https://yapflix-yapus-projects.vercel.app/",
+  "https://yapflix.vercel.app",
+  "https://yapflix-yapus-projects.vercel.app",
 ];
 
 export const corsMiddleware = ({ acceptedOrigins = ACCEPTED_ORIGINS } = {}) =>
