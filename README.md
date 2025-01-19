@@ -95,7 +95,7 @@ Create a .env file in the root directory and add the following variables:
  ┃ ┣ 📂routes          # API routes
  ┃ ┣ 📂services        # Business logic and external services
  ┃ ┣ 📂validations     # Models validations
- ┃ ┗ Main entry point  # index.js
+ ┃ ┗ app.js            # Main entry point
  ┗ .env.example        # Example environment variables
 ```
 
