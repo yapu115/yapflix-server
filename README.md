@@ -34,7 +34,7 @@ The YAPFLIX backend is a REST API developed with **Node.js** and **Express**. It
 1. Clone this repository:  
 
    ```bash
-   git clone https://github.com/tu-usuario/yapflix-backend.git
+   git clone https://github.com/yapu115/yapflix-backend.git
    cd yapflix-backend
    ```
    
