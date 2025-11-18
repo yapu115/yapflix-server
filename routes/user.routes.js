@@ -14,7 +14,7 @@ export const createUserRouter = ({ userModel }) => {
   userRouter.post("/signup", userController.createUser);
   userRouter.post("/signin", userController.getUser);
   userRouter.get("/logged", userController.verifySigned);
-  userRouter.post("/logout", userController.deleteSigned);
+  userRouter.post("/signout", userController.deleteSigned);
 
   // verify followers/follows
   userRouter.get("/:userId/followers", userController.verifyFollowers);

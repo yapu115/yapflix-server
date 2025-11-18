@@ -26,16 +26,16 @@ export const createApp = ({
   app.use(express.urlencoded({ extended: true, limit: "100mb" }));
 
   const allowedOrigins = [
-    "https://yapflix.vercel.app",
     "http://localhost:3000",
     "http://localhost:4200",
+    "https://yapflix.vercel.app",
     "https://yapflix-yapus-projects.vercel.app",
   ];
 
   app.use((req, res, next) => {
     const origin = req.get("Origin");
     if (allowedOrigins.includes(origin)) {
-      res.header("Access-Control-Allow-Origin", origin); // Permitir origen dinámico
+      res.header("Access-Control-Allow-Origin", origin);
       res.header(
         "Access-Control-Allow-Methods",
         "GET, POST, PUT, DELETE, OPTIONS"

@@ -36,7 +36,6 @@ export class UserController {
       const user = await this.userModel.create({ userData: result.data });
       res.send(user);
     } catch (error) {
-      console.log(error.message);
       res.status(400).send(error.message);
     }
   };
@@ -172,9 +171,6 @@ export class UserController {
   saveAvatar = async (req, res) => {
     const { userId } = req.body;
 
-    console.log(userId);
-    console.log(req.file);
-
     if (!userId || !req.file) {
       return res.status(400).json({ message: "There is data missing." });
     }
@@ -184,7 +180,6 @@ export class UserController {
       const newAvatar = await this.userModel.updateAvatar({ file, userId });
       res.send(newAvatar);
     } catch (error) {
-      console.log(error.message);
       res.status(400).send(error.message);
     }
   };
