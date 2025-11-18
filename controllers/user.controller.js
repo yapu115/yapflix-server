@@ -36,6 +36,7 @@ export class UserController {
       const user = await this.userModel.create({ userData: result.data });
       res.send(user);
     } catch (error) {
+      console.log(error.message);
       res.status(400).send(error.message);
     }
   };
