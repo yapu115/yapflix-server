@@ -17,9 +17,4 @@ const pool = new Pool({
   options: "-c search_path=public",
 });
 
-pool
-  .connect()
-  .then(() => console.log("Successful connection with the database"))
-  .catch((err) => console.error("Error connection with the database:", err));
-
 export default pool;
